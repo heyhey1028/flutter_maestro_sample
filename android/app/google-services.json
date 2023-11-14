@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "49520304723",
+    "project_id": "flutter-maestro-sample",
+    "storage_bucket": "flutter-maestro-sample.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49520304723:android:b6915b3213286aefe45ca6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_maestro_sample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZW5P8blDr2YMHE3_4rIJmIo8DbVEIqIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
