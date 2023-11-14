@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppLogo extends StatelessWidget {
   const AppLogo({
     super.key,
-    this.radius = 40,
+    this.radius = 50,
   });
 
   final double radius;
@@ -12,7 +12,7 @@ class AppLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: Colors.transparent,
-      backgroundImage: const AssetImage('images/gs.png'),
+      backgroundImage: const AssetImage('images/flutter_logo.png'),
       radius: radius,
     );
   }

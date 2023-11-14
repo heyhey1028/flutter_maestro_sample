@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_maestro_sample/screens/main_screen.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 import 'package:flutter_maestro_sample/widgets/app_text_form_field.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/app_button.dart';
 
@@ -104,12 +104,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
                     // この時点で画面が破棄されている場合、処理を中断
                     if (result == null || !mounted) return;
-
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => const MainPage(),
-                      ),
-                    );
                   },
                   text: 'Continue',
                 ),
@@ -121,13 +115,9 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(width: 8),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => const SignupScreen(),
-                          ),
-                        );
+                        context.go('/top/signin');
                       },
-                      child: const Text('Log in'),
+                      child: const Text('Sign in'),
                     ),
                   ],
                 )

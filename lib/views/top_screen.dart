@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_maestro_sample/views/sign_in_screen.dart';
-import 'package:flutter_maestro_sample/views/sign_up_screen.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/app_button.dart';
 
-class TopPage extends StatefulWidget {
-  const TopPage({super.key});
+class TopScreen extends StatefulWidget {
+  const TopScreen({super.key});
 
   @override
-  State<TopPage> createState() => _TopPageState();
+  State<TopScreen> createState() => _TopScreenState();
 }
 
-class _TopPageState extends State<TopPage> {
+class _TopScreenState extends State<TopScreen> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {});
@@ -31,7 +30,7 @@ class _TopPageState extends State<TopPage> {
             children: [
               const AppLogo(),
               const SizedBox(height: 24),
-              const Text('Welcome to SupaGPT'),
+              const Text('Welcome to Flutter Store'),
               const SizedBox(height: 16),
               const Text('Log in with your account to continue'),
               const SizedBox(height: 24),
@@ -41,23 +40,15 @@ class _TopPageState extends State<TopPage> {
                   AppButton(
                     width: 80,
                     onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const SigninScreen(),
-                        ),
-                      );
+                      context.go('/top/signin');
                     },
-                    text: 'Log in',
+                    text: 'Sign in',
                   ),
                   const SizedBox(width: 16),
                   AppButton(
                     width: 80,
                     onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const SignupScreen(),
-                        ),
-                      );
+                      context.go('/top/signup');
                     },
                     text: 'Sign up',
                   ),

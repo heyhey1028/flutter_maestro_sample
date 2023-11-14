@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_maestro_sample/main.dart';
-import 'package:flutter_maestro_sample/views/sign_up_screen.dart';
 import 'package:flutter_maestro_sample/widgets/app_button.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 import 'package:flutter_maestro_sample/widgets/app_text_form_field.dart';
+import 'package:go_router/go_router.dart';
 
 class SigninScreen extends StatefulWidget {
   const SigninScreen({super.key});
@@ -88,12 +87,6 @@ class _SigninScreenState extends State<SigninScreen> {
                     );
 
                     if (result == null || !mounted) return;
-
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => const MainApp(),
-                      ),
-                    );
                   },
                   text: 'Continue',
                 ),
@@ -105,11 +98,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     const SizedBox(width: 8),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const SignupScreen(),
-                          ),
-                        );
+                        context.go('/top/signup');
                       },
                       child: const Text('Sign up'),
                     ),

@@ -23,7 +23,7 @@ class AppTextFormField extends StatelessWidget {
         labelText: labelText,
       ),
       obscureText: obscureText,
-      cursorColor: Colors.green,
+      cursorColor: Colors.lightBlue,
       validator: validator,
     );
   }
