@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/repositories/auth_repository.dart';
 import 'package:flutter_maestro_sample/widgets/app_button.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 import 'package:flutter_maestro_sample/widgets/app_text_form_field.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class SigninScreen extends StatefulWidget {
+class SigninScreen extends ConsumerStatefulWidget {
   const SigninScreen({super.key});
 
   @override
-  State<SigninScreen> createState() => _SigninScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SigninScreenState();
 }
 
-class _SigninScreenState extends State<SigninScreen> {
+class _SigninScreenState extends ConsumerState<SigninScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -82,6 +84,7 @@ class _SigninScreenState extends State<SigninScreen> {
 
                     final result = await _login(
                       context,
+                      ref,
                       email: _emailController.text,
                       password: _passwordController.text,
                     );
@@ -113,7 +116,8 @@ class _SigninScreenState extends State<SigninScreen> {
   }
 
   Future<dynamic> _login(
-    BuildContext context, {
+    BuildContext context,
+    WidgetRef ref, {
     required String email,
     required String password,
   }) async {
@@ -121,6 +125,7 @@ class _SigninScreenState extends State<SigninScreen> {
       setState(() {
         _isLoading = true;
       });
+      await ref.read(authProvider).signIn(email, password);
     } finally {
       setState(() {
         _isLoading = false;

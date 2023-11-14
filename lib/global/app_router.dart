@@ -1,5 +1,6 @@
 // GoRouterクラスはRiverpodで依存注入
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/repositories/auth_repository.dart';
 import 'package:flutter_maestro_sample/views/error_screen.dart';
 import 'package:flutter_maestro_sample/views/home_screen.dart';
 import 'package:flutter_maestro_sample/views/sign_in_screen.dart';
@@ -54,5 +55,13 @@ final routerProvider = Provider(
         message: state.error!.message,
       ),
     ),
+    redirect: (context, state) {
+      final isSignedIn = ref.watch(authProvider).isSignedIn;
+      if (isSignedIn) {
+        return '/top/home';
+      } else {
+        return '/top/signin';
+      }
+    },
   ),
 );

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/repositories/auth_repository.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 import 'package:flutter_maestro_sample/widgets/app_text_form_field.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../widgets/app_button.dart';
 
-class SignupScreen extends StatefulWidget {
+class SignupScreen extends ConsumerStatefulWidget {
   const SignupScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SignupScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _SignupScreenState extends ConsumerState<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -98,6 +100,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                     final result = await _signup(
                       context,
+                      ref,
                       email: _emailController.text,
                       password: _passwordController.text,
                     );
@@ -130,7 +133,8 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   Future<dynamic> _signup(
-    BuildContext context, {
+    BuildContext context,
+    WidgetRef ref, {
     required String email,
     required String password,
   }) async {
@@ -138,13 +142,16 @@ class _SignupScreenState extends State<SignupScreen> {
       setState(() {
         _isLoading = true;
       });
+      await ref.read(authProvider).signUp(email, password);
     } on Exception catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(e.toString()),
-          backgroundColor: Colors.red,
-        ),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.toString()),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     } finally {
       setState(() {
         _isLoading = false;
