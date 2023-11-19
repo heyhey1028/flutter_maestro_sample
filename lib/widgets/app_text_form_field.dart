@@ -24,7 +24,15 @@ class AppTextFormField extends StatelessWidget {
       ),
       obscureText: obscureText,
       cursorColor: Colors.lightBlue,
+      style: const TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
       validator: validator,
+      onTap: () {
+        // フォームの入力欄をタップした時にキーボードが出るようにする
+        print('onTap');
+      },
     );
   }
 }

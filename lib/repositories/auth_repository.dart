@@ -5,6 +5,10 @@ final authProvider = Provider(
   (ref) => AuthRepository(),
 );
 
+final isSignedInProvider = StreamProvider<bool>(
+  (ref) => ref.watch(authProvider).isSignedInStream,
+);
+
 class AuthRepository {
   final FirebaseAuth _firebaseAuth;
 
@@ -15,6 +19,8 @@ class AuthRepository {
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }
+
+  Stream<bool> get isSignedInStream => _firebaseAuth.authStateChanges().map((user) => user != null);
 
   bool get isSignedIn => _firebaseAuth.currentUser != null;
 

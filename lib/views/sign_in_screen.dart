@@ -82,14 +82,15 @@ class _SigninScreenState extends ConsumerState<SigninScreen> {
                   onPressed: () async {
                     if (!_formKey.currentState!.validate()) return;
 
-                    final result = await _login(
-                      context,
-                      ref,
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                    );
+                    // final result = await _login(
+                    //   context,
+                    //   ref,
+                    //   email: _emailController.text,
+                    //   password: _passwordController.text,
+                    // );
 
-                    if (result == null || !mounted) return;
+                    // if (result == null || !mounted) return;
+                    context.go('/home');
                   },
                   text: 'Continue',
                 ),
