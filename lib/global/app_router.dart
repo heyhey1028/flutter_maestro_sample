@@ -1,6 +1,8 @@
 // GoRouterクラスはRiverpodで依存注入
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/models/product.dart';
 import 'package:flutter_maestro_sample/repositories/auth_repository.dart';
+import 'package:flutter_maestro_sample/views/detail_screen.dart';
 import 'package:flutter_maestro_sample/views/error_screen.dart';
 import 'package:flutter_maestro_sample/views/pages/cart_page.dart';
 import 'package:flutter_maestro_sample/views/pages/home_page.dart';
@@ -32,13 +34,23 @@ final routerProvider = Provider(
         branches: [
           StatefulShellBranch(navigatorKey: _homeNavigatorKey, routes: [
             GoRoute(
-              name: 'home',
-              path: '/home',
-              pageBuilder: (context, state) => NoTransitionPage(
-                key: state.pageKey,
-                child: const HomePage(),
-              ),
-            ),
+                name: 'home',
+                path: '/home',
+                pageBuilder: (context, state) => NoTransitionPage(
+                      key: state.pageKey,
+                      child: const HomePage(),
+                    ),
+                routes: [
+                  GoRoute(
+                    name: 'detail',
+                    path: 'detail',
+                    parentNavigatorKey: _rootNavigatorKey,
+                    pageBuilder: (context, state) {
+                      final product = state.extra as Product;
+                      return MaterialPage(child: ProductDetailScreen(product: product));
+                    },
+                  )
+                ]),
           ]),
           StatefulShellBranch(navigatorKey: _likeNavigatorKey, routes: [
             GoRoute(
