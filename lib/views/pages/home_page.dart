@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/global/app_router.dart';
 import 'package:flutter_maestro_sample/models/product.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -48,7 +48,8 @@ class ProductCard extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              context.goNamed('detail', extra: product);
+              // context.goNamed('detail', extra: product);
+              // DetailRouteData($extra: product).go(context);
             },
             child: Column(
               children: [

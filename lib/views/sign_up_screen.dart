@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/global/app_router.dart';
 import 'package:flutter_maestro_sample/repositories/auth_repository.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 import 'package:flutter_maestro_sample/widgets/app_text_form_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../widgets/app_button.dart';
 
@@ -118,7 +118,8 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     const SizedBox(width: 8),
                     TextButton(
                       onPressed: () {
-                        context.go('/top/signin');
+                        // context.go('/top/signin');
+                        const SigninRouteData().go(context);
                       },
                       child: const Text('Sign in'),
                     ),

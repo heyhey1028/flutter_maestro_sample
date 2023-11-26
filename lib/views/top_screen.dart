@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/global/app_router.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
-import 'package:go_router/go_router.dart';
 
 import '../widgets/app_button.dart';
 
@@ -40,7 +40,8 @@ class _TopScreenState extends State<TopScreen> {
                   AppButton(
                     width: 80,
                     onPressed: () {
-                      context.go('/top/signin');
+                      // context.go('/top/signin');
+                      const SigninRouteData().go(context);
                     },
                     text: 'Sign in',
                   ),
@@ -48,7 +49,8 @@ class _TopScreenState extends State<TopScreen> {
                   AppButton(
                     width: 80,
                     onPressed: () {
-                      context.go('/top/signup');
+                      // context.go('/top/signup');
+                      const SignupRouteData().go(context);
                     },
                     text: 'Sign up',
                   ),

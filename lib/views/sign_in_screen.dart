@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maestro_sample/global/app_router.dart';
 import 'package:flutter_maestro_sample/repositories/auth_repository.dart';
 import 'package:flutter_maestro_sample/widgets/app_button.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 import 'package:flutter_maestro_sample/widgets/app_text_form_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class SigninScreen extends ConsumerStatefulWidget {
   const SigninScreen({super.key});
@@ -90,7 +90,8 @@ class _SigninScreenState extends ConsumerState<SigninScreen> {
                     // );
 
                     // if (result == null || !mounted) return;
-                    context.go('/home');
+                    // context.go('/home');
+                    const HomeRouteData().go(context);
                   },
                   text: 'Continue',
                 ),
@@ -102,7 +103,8 @@ class _SigninScreenState extends ConsumerState<SigninScreen> {
                     const SizedBox(width: 8),
                     TextButton(
                       onPressed: () {
-                        context.go('/top/signup');
+                        // context.go('/top/signup');
+                        const SignupRouteData().go(context);
                       },
                       child: const Text('Sign up'),
                     ),
