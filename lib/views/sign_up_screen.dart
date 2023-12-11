@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_maestro_sample/global/app_router.dart';
-import 'package:flutter_maestro_sample/repositories/auth_repository.dart';
+import 'package:flutter_maestro_sample/global/app_route_data.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 import 'package:flutter_maestro_sample/widgets/app_text_form_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,7 +18,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-  bool _isLoading = false;
+  final bool _isLoading = false;
 
   @override
   void dispose() {
@@ -98,15 +97,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     // バリデーションエラーがある場合、処理を中断
                     if (!_formKey.currentState!.validate()) return;
 
-                    final result = await _signup(
-                      context,
-                      ref,
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                    );
-
-                    // この時点で画面が破棄されている場合、処理を中断
-                    if (result == null || !mounted) return;
+                    const HomeRouteData().go(context);
                   },
                   text: 'Continue',
                 ),
@@ -131,32 +122,5 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
         ),
       ),
     );
-  }
-
-  Future<dynamic> _signup(
-    BuildContext context,
-    WidgetRef ref, {
-    required String email,
-    required String password,
-  }) async {
-    try {
-      setState(() {
-        _isLoading = true;
-      });
-      await ref.read(authProvider).signUp(email, password);
-    } on Exception catch (e) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(e.toString()),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
   }
 }

@@ -12,15 +12,22 @@ class ProductDetailScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Stack(
+          fit: StackFit.expand,
           children: [
-            const SizedBox(
-              height: 30,
-            ),
             Column(
               children: [
-                Hero(
-                  tag: product.tag,
-                  child: Image.asset(product.imagePath),
+                const SizedBox(
+                  height: 40,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: Hero(
+                    tag: product.tag,
+                    child: Image.asset(
+                      product.imagePath,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 Text(product.name),
                 Text(product.description),

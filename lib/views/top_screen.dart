@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_maestro_sample/global/app_router.dart';
+import 'package:flutter_maestro_sample/global/app_route_data.dart';
 import 'package:flutter_maestro_sample/widgets/app_logo.dart';
 
 import '../widgets/app_button.dart';

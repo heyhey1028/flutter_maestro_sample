@@ -22,7 +22,6 @@ class AppNavigationBar extends StatelessWidget {
           NavigationDestination(icon: Icon(Icons.person), label: 'profile'),
         ],
         onDestinationSelected: (index) {
-          print('$index index tapped');
           navigationShell.goBranch(
             index,
             initialLocation: index == navigationShell.currentIndex,

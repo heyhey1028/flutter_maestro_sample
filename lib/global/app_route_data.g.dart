@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_router.dart';
+part of 'app_route_data.dart';
 
 // **************************************************************************
 // GoRouterGenerator
@@ -44,6 +44,12 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
             GoRouteData.$route(
               path: '/cart',
               factory: $CartRouteDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'payment',
+                  factory: $PaymentRouteDataExtension._fromState,
+                ),
+              ],
             ),
           ],
         ),
@@ -124,6 +130,24 @@ extension $CartRouteDataExtension on CartRouteData {
 
   String get location => GoRouteData.$location(
         '/cart',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $PaymentRouteDataExtension on PaymentRouteData {
+  static PaymentRouteData _fromState(GoRouterState state) =>
+      const PaymentRouteData();
+
+  String get location => GoRouteData.$location(
+        '/cart/payment',
       );
 
   void go(BuildContext context) => context.go(location);

@@ -1,14 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_maestro_sample/firebase_options.dart';
 import 'package:flutter_maestro_sample/global/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(
     const ProviderScope(child: MainApp()),
   );
@@ -22,9 +16,10 @@ class MainApp extends ConsumerWidget {
     final router = ref.watch(routerProvider);
 
     return MaterialApp.router(
-      title: 'Flutter Maestro Demo',
+      title: 'Go Router Sample',
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
+        scaffoldBackgroundColor: Colors.lightBlue.shade50,
       ),
       // GoRouterクラスからrouteInformationProvider,routerInformationnParser, routerDelegateを渡す
       routeInformationProvider: router.routeInformationProvider,
