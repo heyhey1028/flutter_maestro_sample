@@ -33,7 +33,7 @@ class _LikePageState extends State<LikePage> with SingleTickerProviderStateMixin
             fit: StackFit.expand,
             children: [
               Image.asset(
-                'images/flutter_background.png',
+                'assets/images/flutter_background.png',
                 fit: BoxFit.fitHeight,
               ),
               Align(
@@ -51,7 +51,7 @@ class _LikePageState extends State<LikePage> with SingleTickerProviderStateMixin
                     alignment: Alignment.bottomCenter,
                     children: [
                       LottieBuilder.asset(
-                        'lottie/heart_icon.json',
+                        'assets/lottie/heart_icon.json',
                         controller: _controller,
                       ),
                       Center(

@@ -12,7 +12,7 @@ class AppLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: Colors.transparent,
-      backgroundImage: const AssetImage('images/flutter_logo.png'),
+      backgroundImage: const AssetImage('assets/images/flutter_logo.png'),
       radius: radius,
     );
   }

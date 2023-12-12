@@ -6,7 +6,7 @@ enum Product {
     description: 'hop! hop!',
     tag: 'bunny',
     price: 100000,
-    imagePath: 'images/bunny_dash.png',
+    imagePath: 'assets/images/bunny_dash.png',
   ),
   coffee(
     id: '002',
@@ -15,7 +15,7 @@ enum Product {
     description: 'coffee! coffee!',
     tag: 'coffee',
     price: 100000,
-    imagePath: 'images/coffee_dash.png',
+    imagePath: 'assets/images/coffee_dash.png',
   ),
   fire(
     id: '003',
@@ -24,7 +24,7 @@ enum Product {
     description: 'fire! fire!',
     tag: 'fire',
     price: 100000,
-    imagePath: 'images/fire_dash.png',
+    imagePath: 'assets/images/fire_dash.png',
   ),
   guiter(
     id: '004',
@@ -33,7 +33,7 @@ enum Product {
     description: 'guiter! guiter!',
     tag: 'guiter',
     price: 100000,
-    imagePath: 'images/guiter_dash.png',
+    imagePath: 'assets/images/guiter_dash.png',
   ),
   gym(
     id: '005',
@@ -42,7 +42,7 @@ enum Product {
     description: 'gym! gym!',
     tag: 'gym',
     price: 100000,
-    imagePath: 'images/gym_dash.png',
+    imagePath: 'assets/images/gym_dash.png',
   ),
   pencil(
     id: '006',
@@ -51,7 +51,7 @@ enum Product {
     description: 'pencil! pencil!',
     tag: 'pencil',
     price: 100000,
-    imagePath: 'images/pencil_dash.png',
+    imagePath: 'assets/images/pencil_dash.png',
   ),
   professor(
     id: '007',
@@ -60,7 +60,7 @@ enum Product {
     description: 'professor! professor!',
     tag: 'professor',
     price: 100000,
-    imagePath: 'images/professor_dash.png',
+    imagePath: 'assets/images/professor_dash.png',
   ),
   superman(
     id: '008',
@@ -69,7 +69,7 @@ enum Product {
     description: 'superman! superman!',
     tag: 'superman',
     price: 100000,
-    imagePath: 'images/superman_dash.png',
+    imagePath: 'assets/images/superman_dash.png',
   ),
   artist(
     id: '009',
@@ -78,7 +78,7 @@ enum Product {
     description: 'artist! artist!',
     tag: 'artist',
     price: 100000,
-    imagePath: 'images/artist_dash.png',
+    imagePath: 'assets/images/artist_dash.png',
   ),
   sleep(
     id: '010',
@@ -87,7 +87,7 @@ enum Product {
     description: 'sleep! sleep!',
     tag: 'sleep',
     price: 100000,
-    imagePath: 'images/sleep_dash.png',
+    imagePath: 'assets/images/sleep_dash.png',
   ),
   skateboard(
     id: '011',
@@ -96,7 +96,7 @@ enum Product {
     description: 'skateboard! skateboard!',
     tag: 'skateboard',
     price: 100000,
-    imagePath: 'images/skateboard_dash.png',
+    imagePath: 'assets/images/skateboard_dash.png',
   ),
   donut(
     id: '012',
@@ -105,7 +105,7 @@ enum Product {
     description: 'donut! donut!',
     tag: 'donut',
     price: 100000,
-    imagePath: 'images/donut_dash.png',
+    imagePath: 'assets/images/donut_dash.png',
   ),
   stickerDash(
     id: '013',
@@ -114,7 +114,7 @@ enum Product {
     description: 'sticker! sticker!',
     tag: 'st_dash',
     price: 100000,
-    imagePath: 'images/dash_sticker01.png',
+    imagePath: 'assets/images/dash_sticker01.png',
   ),
   stickerDartSide(
     id: '014',
@@ -123,7 +123,7 @@ enum Product {
     description: 'sticker! sticker!',
     tag: 'st_dart_side',
     price: 100000,
-    imagePath: 'images/dash_sticker02.png',
+    imagePath: 'assets/images/dash_sticker02.png',
   ),
   stickerSinging(
     id: '015',
@@ -132,7 +132,7 @@ enum Product {
     description: 'sticker! sticker!',
     tag: 'st_singing',
     price: 100000,
-    imagePath: 'images/dash_sticker03.png',
+    imagePath: 'assets/images/dash_sticker03.png',
   ),
   stickerShouting(
     id: '016',
@@ -141,7 +141,7 @@ enum Product {
     description: 'sticker! sticker!',
     tag: 'st_shouting',
     price: 100000,
-    imagePath: 'images/dash_sticker04.png',
+    imagePath: 'assets/images/dash_sticker04.png',
   ),
   stickerGlasses(
     id: '017',
@@ -150,7 +150,7 @@ enum Product {
     description: 'sticker! sticker!',
     tag: 'st_glasses',
     price: 100000,
-    imagePath: 'images/dash_sticker05.png',
+    imagePath: 'assets/images/dash_sticker05.png',
   ),
   stickerTeaching(
     id: '018',
@@ -159,7 +159,7 @@ enum Product {
     description: 'sticker! sticker!',
     tag: 'st_teaching',
     price: 100000,
-    imagePath: 'images/dash_sticker06.png',
+    imagePath: 'assets/images/dash_sticker06.png',
   ),
   stickerLove(
     id: '019',
@@ -168,7 +168,7 @@ enum Product {
     description: 'sticker! sticker!',
     tag: 'st_love',
     price: 100000,
-    imagePath: 'images/dash_sticker07.png',
+    imagePath: 'assets/images/dash_sticker07.png',
   ),
   tshirtDash(
     id: '020',
@@ -177,7 +177,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_dash',
     price: 100000,
-    imagePath: 'images/tshirt_dash.png',
+    imagePath: 'assets/images/tshirt_dash.png',
   ),
   tshirtGlasses(
     id: '021',
@@ -186,7 +186,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_glasses',
     price: 100000,
-    imagePath: 'images/tshirt_glasses.png',
+    imagePath: 'assets/images/tshirt_glasses.png',
   ),
   tshirtHi(
     id: '022',
@@ -195,7 +195,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_hi',
     price: 100000,
-    imagePath: 'images/tshirt_hi.png',
+    imagePath: 'assets/images/tshirt_hi.png',
   ),
   tshirtCombi(
     id: '023',
@@ -204,7 +204,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_combi',
     price: 100000,
-    imagePath: 'images/tshirt_combi.png',
+    imagePath: 'assets/images/tshirt_combi.png',
   ),
   tshirtDarth(
     id: '024',
@@ -213,7 +213,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_darth',
     price: 100000,
-    imagePath: 'images/tshirt_darth.png',
+    imagePath: 'assets/images/tshirt_darth.png',
   ),
   tshirtRocket(
     id: '025',
@@ -222,7 +222,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_rocket',
     price: 100000,
-    imagePath: 'images/tshirt_rocket.png',
+    imagePath: 'assets/images/tshirt_rocket.png',
   ),
   tshirtSing(
     id: '026',
@@ -231,7 +231,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_sing',
     price: 100000,
-    imagePath: 'images/tshirt_sing.png',
+    imagePath: 'assets/images/tshirt_sing.png',
   ),
   tshirtShouting(
     id: '027',
@@ -240,7 +240,7 @@ enum Product {
     description: 'tshirt! tshirt!',
     tag: 'ts_shouting',
     price: 100000,
-    imagePath: 'images/tshirt_shouting.png',
+    imagePath: 'assets/images/tshirt_shouting.png',
   ),
   stuffedDash2(
     id: '029',
@@ -249,7 +249,7 @@ enum Product {
     description: 'stuffed! stuffed!',
     tag: 'stu_dash2',
     price: 100000,
-    imagePath: 'images/stuffed_dash2.png',
+    imagePath: 'assets/images/stuffed_dash2.png',
   ),
   stuffedBig(
     id: '030',
@@ -258,7 +258,7 @@ enum Product {
     description: 'stuffed! stuffed!',
     tag: 'stu_big',
     price: 100000,
-    imagePath: 'images/stuffed_big.png',
+    imagePath: 'assets/images/stuffed_big.png',
   ),
   stuffedGlasses(
     id: '031',
@@ -267,7 +267,7 @@ enum Product {
     description: 'stuffed! stuffed!',
     tag: 'stu_glasses',
     price: 100000,
-    imagePath: 'images/stuffed_glasses.png',
+    imagePath: 'assets/images/stuffed_glasses.png',
   ),
   stuffedMedium(
     id: '032',
@@ -276,7 +276,7 @@ enum Product {
     description: 'stuffed! stuffed!',
     tag: 'stu_medium',
     price: 100000,
-    imagePath: 'images/stuffed_medium.png',
+    imagePath: 'assets/images/stuffed_medium.png',
   ),
   ;
 

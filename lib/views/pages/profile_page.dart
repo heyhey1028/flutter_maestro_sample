@@ -45,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                 child: SizedBox.square(
                   dimension: 200,
                   child: LottieBuilder.asset(
-                    'lottie/flutter_loading.json',
+                    'assets/lottie/flutter_loading.json',
                     fit: BoxFit.cover,
                     repeat: true,
                   ),
