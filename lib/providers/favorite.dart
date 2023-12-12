@@ -10,6 +10,8 @@ class Favorite extends _$Favorite {
     return {};
   }
 
+  bool isSelected(Product product) => state.contains(product);
+
   void tapFavorite(Product product) {
     if (state.contains(product)) {
       removeFromFav(product);
@@ -20,9 +22,11 @@ class Favorite extends _$Favorite {
 
   void addToFav(Product product) {
     state.add(product);
+    state = {...state};
   }
 
   void removeFromFav(Product product) {
     state.remove(product);
+    state = {...state};
   }
 }

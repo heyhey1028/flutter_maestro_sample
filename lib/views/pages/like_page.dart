@@ -1,86 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_maestro_sample/models/product.dart';
-import 'package:lottie/lottie.dart';
+import 'package:flutter_maestro_sample/providers/favorite.dart';
+import 'package:flutter_maestro_sample/widgets/product_card.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LikePage extends StatefulWidget {
+class LikePage extends ConsumerWidget {
   const LikePage({super.key});
 
   @override
-  State<LikePage> createState() => _LikePageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final dashes = ref.watch(favoriteProvider);
 
-class _LikePageState extends State<LikePage> with SingleTickerProviderStateMixin {
-  int number = 0;
-  late final AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SizedBox(
-          height: 300,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              Image.asset(
-                'assets/images/flutter_background.png',
-                fit: BoxFit.fitHeight,
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Image.asset(
-                  Product.superman.imagePath,
-                ),
-              ),
-              Positioned(
-                right: 20,
-                top: 20,
-                child: SizedBox.square(
-                  dimension: 140,
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      LottieBuilder.asset(
-                        'assets/lottie/heart_icon.json',
-                        controller: _controller,
-                      ),
-                      Center(
-                        child: Text(
-                          '$number',
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+      appBar: AppBar(
+        title: const Text('Your Favorites'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          _controller.reset();
-          setState(() {
-            number++;
-          });
-          await _controller.forward();
-        },
-        child: const Icon(Icons.add),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: [
+            for (final dash in dashes)
+              ProductCard(
+                product: dash,
+                navigateDisabled: true,
+              ),
+          ],
+        ),
       ),
     );
   }
