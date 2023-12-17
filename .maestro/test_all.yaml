@@ -1,8 +1,0 @@
-appId: com.example.flutterMaestroSample
----
-- launchApp:
-    clearState: true
-- runFlow: "login_flow.yaml"
-- runFlow: "add_favorite.yaml"
-- runFlow: "add_cart.yaml"
-- runFlow: "make_payment.yaml"
