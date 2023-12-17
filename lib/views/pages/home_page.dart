@@ -27,35 +27,38 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     final dashes = Product.all;
     const categories = ProductCategory.values;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            TabBar(
-              controller: _tabController,
-              tabs: [
-                for (final category in categories)
-                  Tab(
-                    text: category.name,
-                  ),
-              ],
-            ),
-            Expanded(
-              child: TabBarView(
+    return Semantics(
+      label: 'home page',
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              TabBar(
                 controller: _tabController,
-                children: [
+                tabs: [
                   for (final category in categories)
-                    GridView.count(
-                      crossAxisCount: 2,
-                      children: [
-                        for (final dash in dashes)
-                          if (dash.category == category) ProductCard(product: dash),
-                      ],
+                    Tab(
+                      text: category.name,
                     ),
                 ],
               ),
-            ),
-          ],
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    for (final category in categories)
+                      GridView.count(
+                        crossAxisCount: 2,
+                        children: [
+                          for (final dash in dashes)
+                            if (dash.category == category) ProductCard(product: dash),
+                        ],
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

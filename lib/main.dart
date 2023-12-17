@@ -17,6 +17,7 @@ class MainApp extends ConsumerWidget {
 
     return MaterialApp.router(
       title: 'Go Router Sample',
+      // showSemanticsDebugger: true,
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
         scaffoldBackgroundColor: Colors.lightBlue.shade50,

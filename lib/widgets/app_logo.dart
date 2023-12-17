@@ -10,10 +10,13 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: Colors.transparent,
-      backgroundImage: const AssetImage('assets/images/flutter_logo.png'),
-      radius: radius,
+    return Semantics(
+      label: 'Test',
+      child: CircleAvatar(
+        backgroundColor: Colors.transparent,
+        backgroundImage: const AssetImage('assets/images/flutter_logo.png'),
+        radius: radius,
+      ),
     );
   }
 }

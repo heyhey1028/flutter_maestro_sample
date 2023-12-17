@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_maestro_sample/global/app_route_data.dart';
+import 'package:flutter_maestro_sample/providers/cart.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class PaymentScreen extends ConsumerStatefulWidget {
@@ -38,27 +40,32 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: SwipeableButtonView(
-                  isFinished: isFinished,
-                  onFinish: () {
-                    setState(() {
-                      isFinished = false;
-                    });
-                    const HomeRouteData().go(context);
-                  },
-                  onWaitingProcess: () {
-                    Future.delayed(const Duration(seconds: 2), () {
+                child: Semantics(
+                  label: 'swipe to pay',
+                  child: SwipeableButtonView(
+                    isFinished: isFinished,
+                    onFinish: () {
                       setState(() {
-                        isFinished = true;
+                        isFinished = false;
                       });
-                    });
-                  },
-                  activeColor: Colors.lightBlue.shade200,
-                  buttonWidget: const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: Colors.grey,
+                      ref.invalidate(cartProvider);
+                      context.pop();
+                      StatefulNavigationShell.of(context).goBranch(0);
+                    },
+                    onWaitingProcess: () {
+                      Future.delayed(const Duration(seconds: 2), () {
+                        setState(() {
+                          isFinished = true;
+                        });
+                      });
+                    },
+                    activeColor: Colors.lightBlue.shade200,
+                    buttonWidget: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.grey,
+                    ),
+                    buttonText: 'Swipe to Pay',
                   ),
-                  buttonText: 'Swipe to Pay',
                 ),
               ),
             )
@@ -69,12 +76,14 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
   }
 }
 
-class OverviewSection extends StatelessWidget {
+class OverviewSection extends ConsumerWidget {
   const OverviewSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const SizedBox(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final totalPrice = ref.watch(cartProvider.notifier).totalPrice;
+
+    return SizedBox(
       height: 100,
       width: double.infinity,
       child: Column(
@@ -83,23 +92,23 @@ class OverviewSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Total:',
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
               ),
-              Gap(10),
-              Text(
+              const Gap(10),
+              const Text(
                 '\$',
                 style: TextStyle(fontSize: 20),
               ),
-              Gap(4),
+              const Gap(4),
               Text(
-                '1000',
-                style: TextStyle(fontSize: 20),
+                totalPrice.toString(),
+                style: const TextStyle(fontSize: 20),
               ),
             ],
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(

@@ -134,6 +134,8 @@ class CartRouteData extends GoRouteData {
 class PaymentRouteData extends GoRouteData {
   const PaymentRouteData();
 
+  static final GlobalKey<NavigatorState> $navigatorKey = rootNavigatorKey;
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const PaymentScreen();
