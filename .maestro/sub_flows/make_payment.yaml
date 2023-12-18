@@ -1,3 +1,4 @@
+---
 - tapOn: "BUY"
 - assertVisible:
     text: "300000"

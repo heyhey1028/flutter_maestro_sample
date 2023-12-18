@@ -1,3 +1,4 @@
+---
 - scrollUntilVisible:
     element:
       text: ".*fav_012.*"
