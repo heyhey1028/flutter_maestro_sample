@@ -1,5 +1,3 @@
-appId: com.example.flutterMaestroSample
----
 - tapOn: "BUY"
 - assertVisible:
     text: "300000"

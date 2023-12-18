@@ -1,5 +1,3 @@
-appId: com.example.flutterMaestroSample
----
 - tapOn: ".*add012.*"
 - tapOn: ".*add014.*"
 - tapOn: ".*add025.*"
