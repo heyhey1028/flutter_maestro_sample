@@ -36,6 +36,7 @@ class Cart extends _$Cart {
     final index = state.indexWhere((item) => item.product == product);
 
     if (item.quantity == 1) {
+      state.removeAt(index);
       state = [...state];
       return;
     }
