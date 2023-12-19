@@ -1,0 +1,12 @@
+appId: com.example.flutter_maestro_sample
+---
+- tapOn: ".*add012.*"
+- tapOn: ".*add014.*"
+- tapOn: ".*add025.*"
+- tapOn: "cart\nTab 3 of 4"
+- assertVisible:
+    text: ".*cart012.*"
+- assertVisible:
+    text: ".*cart014.*"
+- assertVisible:
+    text: ".*cart025.*"

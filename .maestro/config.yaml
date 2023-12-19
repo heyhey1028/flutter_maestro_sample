@@ -1,8 +1,2 @@
 baselineBranch: main
-executionOrder:
-  continueOnFailure: false
-  flowsOrder:
-    - login_flow
-    - add_favorite
-    - add_cart
-    - make_payment
+

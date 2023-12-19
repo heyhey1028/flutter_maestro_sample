@@ -1,0 +1,19 @@
+appId: com.example.flutter_maestro_sample
+---
+- scrollUntilVisible:
+    element:
+      text: ".*fav_012.*"
+    direction: DOWN
+    visibilityPercentage: 100
+- tapOn: ".*fav_012.*"
+- tapOn: "sticker\nTab 2 of 4"
+- tapOn: ".*fav_014.*"
+- tapOn: "tshirt\nTab 3 of 4"
+- tapOn: ".*fav_025.*"
+- tapOn: "like\nTab 2 of 4"
+- assertVisible:
+    text: ".*card012.*"
+- assertVisible:
+    text: ".*card014.*"
+- assertVisible:
+    text: ".*card025.*"

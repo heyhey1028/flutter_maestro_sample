@@ -1,0 +1,20 @@
+appId: com.example.flutter_maestro_sample
+---
+- tapOn:
+    text: "Sign in"
+- tapOn:
+    text: "Continue"
+- assertVisible:
+    text: "Email address is required"
+- assertVisible:
+    text: "Password is required"
+- tapOn:
+    text: "Email address"
+- inputRandomEmail
+- tapOn:
+    text: "Password"
+- inputRandomText
+- tapOn:
+    text: "Continue"
+- extendedWaitUntil:
+    visible: ".*navigation root.*"
